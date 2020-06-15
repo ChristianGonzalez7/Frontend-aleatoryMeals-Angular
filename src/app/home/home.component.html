@@ -3,7 +3,7 @@
 
     <div id='food'>
         <div class='foods'>
-            <img id="banana" src="../../assets/images/banana.png" alt="img" (onclick)="bringMealData($event)">
+            <img id="banana" src="../../assets/images/banana.png" alt="img" (click)="bringMealData($event)">
         </div>
         <div class='foods'>
             <img id="manzana" src="../../assets/images/manzana.png" alt="img">
@@ -14,7 +14,7 @@
     </div>
 </div>
 
-<div class="meals">
+<div class="meals" [ngStyle]="{'display': displayMeal}">
     <h1>Food: {{food}}</h1>
     <h3>Meal Name: {{mealName}}</h3>
     <section>
