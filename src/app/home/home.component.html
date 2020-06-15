@@ -1,0 +1,30 @@
+<div>
+    <h1 id='title'>Aleatory Healthy Meal Generetor</h1>
+
+    <div id='food'>
+        <div class='foods'>
+            <img id="banana" src="../../assets/images/banana.png" alt="img" (onclick)="bringMealData($event)">
+        </div>
+        <div class='foods'>
+            <img id="manzana" src="../../assets/images/manzana.png" alt="img">
+        </div>
+        <div class='foods'>
+            <img id="pollo" src="../../assets/images/pollo.png" alt="img">
+        </div>
+    </div>
+</div>
+
+<div class="meals">
+    <h1>Food: {{food}}</h1>
+    <h3>Meal Name: {{mealName}}</h3>
+    <section>
+        <article>
+            Ingredients: {{ingredients}}
+        </article>
+        <article>
+            Method: {{method}}
+        </article>
+    </section>
+</div>
+
+<router-outlet></router-outlet>

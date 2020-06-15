@@ -1,0 +1,20 @@
+#title {
+    font-size: 60px;
+    padding-left: 90px;
+    font-style: oblique;
+    color: green;
+    text-shadow: 5px 5px greenyellow;
+}
+
+.foods {
+    width: 500px;
+    height: 500px;
+    display: inline;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    margin: 70px;
+    cursor: pointer;
+}
