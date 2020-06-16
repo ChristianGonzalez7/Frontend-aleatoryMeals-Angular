@@ -9,4 +9,35 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="meals mt-4">
+            <img [src]="image" alt="">
+            <h1 class="mb-3 pb-3 text-black-50">{{mealName}}</h1>
+            <br>
+            <h2 class="mb-3 pb-3"><i><u>Description:</u></i> <small> {{description}}</small></h2>
+            <h2 class="mb-3 pb-3"><i><u>Preparation time:</u></i><small> {{prep}}</small></h2> 
+            <h2 class="mb-3 pb-3"><i><u>Difficulty:</u></i> <small> {{difficulty}}</small></h2>
+
+            
+            <section>
+                <h2><i><u>Ingredients:</u></i></h2>
+                <article class="mb-2 info" *ngFor="let ingredient of ingredients">
+                    <b>- </b>{{ingredient}}
+                </article>
+                <h2 class="mt-4"><i><u>Method:</u></i></h2>
+                <article class="mb-2 info" *ngFor="let meth of method; let i=index">
+                    <b>{{i + 1}}.</b> {{meth}}
+                </article>
+
+            </section>
+
+        </div>
+    </div>
+
 </div>
+<!-- prep: string; 
+  cook: string;
+  difficulty: string;
+  servings: string;
+  description: string;
+  -->

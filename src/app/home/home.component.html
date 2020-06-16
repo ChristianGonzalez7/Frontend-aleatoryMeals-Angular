@@ -8,29 +8,29 @@
                     <img id="banana" src="../../assets/images/banana.png" alt="img" (click)="bringMealData($event)">
                 </div>
                 <div class='foods'>
-                    <img id="manzana" src="../../assets/images/manzana.png" alt="img">
+                    <img id="apple" src="../../assets/images/manzana.png" alt="img" (click)="bringMealData($event)">
                 </div>
                 <div class='foods'>
-                    <img id="pollo" src="../../assets/images/pollo.png" alt="img">
+                    <img id="chicken" src="../../assets/images/pollo.png" alt="img" (click)="bringMealData($event)">
                 </div>
             </div>
         </div>
 
         <div class="meals col-7 mt-4" [ngStyle]="{'display': displayMeal}">
-            <h1><i>Food:</i> {{food}}</h1>
-            <h2 class="mb-3 pb-3"><i>Meal Name:</i> {{mealName}}</h2>
+            <h1>Food: <i>{{food}}</i></h1>
+            <h2 class="mb-3 pb-3">Meal Name: <i>{{mealName}}</i></h2>
             <section>
-                <h2><i><u>Ingredients:</u></i></h2>
-                <article class="mb-2" *ngFor="let ingredient of randomMeal.ingredients">
+                <h2><u>Ingredients:</u></h2>
+                <article class="mb-2 info" *ngFor="let ingredient of randomMeal.ingredients">
                     <b>- </b>{{ingredient}}
                 </article>
-                <h2 class="mt-4"><i><u>Method:</u></i></h2>
-                <article class="mb-2" *ngFor="let method of randomMeal.method; let i=index">
+                <h2 class="mt-4"><u>Method:</u></h2>
+                <article class="mb-2 info" *ngFor="let method of randomMeal.method; let i=index">
                     <b>{{i + 1}}.</b> {{method}}
                 </article>
             </section>
 
-            <button class="btn btn-info" [routerLink]="['/meal']" (click)="mealData">Click for more info</button>
+            <button class="my-2 btn btn-info" (click)="mealData()" [routerLink]="['/meal']">Click for more info</button>
         </div>
     </div>
 

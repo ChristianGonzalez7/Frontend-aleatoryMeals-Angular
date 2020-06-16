@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   method: any[];
   nmbr: number;
   displayMeal: string;
+  exportArray: any[];
 
   constructor(private serviceService: ServiceService) {
     this.nmbr = 999;
@@ -45,14 +46,14 @@ export class HomeComponent implements OnInit {
     this.ingredients = this.randomMeal.ingredients;
     this.method = this.randomMeal.method;
 
-    // Display DIV container with meal
+    // Display hidden DIV container with meal
     this.displayMeal = 'inline-block';
   }
 
   mealData() {
-    return this.randomMeal;
+    this.serviceService.updateActualMeal(this.randomMeal)
   }
 
-
+  
 
 }

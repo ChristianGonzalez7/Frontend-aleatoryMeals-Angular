@@ -16,6 +16,7 @@
     height: 150px;
     display: block;
     margin-left: 50px;
+    margin-top: 60px;
 }
 
 img {
@@ -29,6 +30,10 @@ img {
     background-color: khaki;
     border-radius: 10px;
     box-shadow: 10px 10px -10px 3px dimgray;
+}
+
+.info {
+    color: darkslategrey;
 }
 
 .btn {

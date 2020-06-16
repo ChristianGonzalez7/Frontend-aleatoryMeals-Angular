@@ -15,3 +15,18 @@
 .test {
     display: inline;
 }
+
+.meals {
+    background-color: khaki;
+    border-radius: 10px;
+    box-shadow: 10px 10px -10px 3px dimgray;
+    margin: 20px;
+    padding: 15px;
+}
+
+img {
+    height: 300px;
+    width: 300px;
+    float: inline-end;
+    margin: 10px;
+}
