@@ -1,0 +1,17 @@
+.container {
+    background-color: black;
+    min-height: 100vh;
+}
+
+#title {
+    font-size: 60px;
+    padding-left: 60px;
+    font-style: oblique;
+    color: green;
+    text-shadow: 2px 2px greenyellow;
+    margin-top: 20px;
+}
+
+.test {
+    display: inline;
+}

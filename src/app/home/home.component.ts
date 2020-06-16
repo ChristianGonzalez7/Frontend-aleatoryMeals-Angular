@@ -46,7 +46,11 @@ export class HomeComponent implements OnInit {
     this.method = this.randomMeal.method;
 
     // Display DIV container with meal
-    this.displayMeal = 'block';
+    this.displayMeal = 'inline-block';
+  }
+
+  mealData() {
+    return this.randomMeal;
   }
 
 

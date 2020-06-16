@@ -1,30 +1,39 @@
-<div>
-    <h1 id='title'>Aleatory Healthy Meal Generetor</h1>
+<div class="container">
+    <div class="row"> <h1 id='title'>Aleatory Healthy Meal Generetor</h1> </div>
 
-    <div id='food'>
-        <div class='foods'>
-            <img id="banana" src="../../assets/images/banana.png" alt="img" (click)="bringMealData($event)">
+    <div class="row">
+        <div class="col-4">
+            <div id='food'>
+                <div class='foods'>
+                    <img id="banana" src="../../assets/images/banana.png" alt="img" (click)="bringMealData($event)">
+                </div>
+                <div class='foods'>
+                    <img id="manzana" src="../../assets/images/manzana.png" alt="img">
+                </div>
+                <div class='foods'>
+                    <img id="pollo" src="../../assets/images/pollo.png" alt="img">
+                </div>
+            </div>
         </div>
-        <div class='foods'>
-            <img id="manzana" src="../../assets/images/manzana.png" alt="img">
-        </div>
-        <div class='foods'>
-            <img id="pollo" src="../../assets/images/pollo.png" alt="img">
+
+        <div class="meals col-7 mt-4" [ngStyle]="{'display': displayMeal}">
+            <h1><i>Food:</i> {{food}}</h1>
+            <h2 class="mb-3 pb-3"><i>Meal Name:</i> {{mealName}}</h2>
+            <section>
+                <h2><i><u>Ingredients:</u></i></h2>
+                <article class="mb-2" *ngFor="let ingredient of randomMeal.ingredients">
+                    <b>- </b>{{ingredient}}
+                </article>
+                <h2 class="mt-4"><i><u>Method:</u></i></h2>
+                <article class="mb-2" *ngFor="let method of randomMeal.method; let i=index">
+                    <b>{{i + 1}}.</b> {{method}}
+                </article>
+            </section>
+
+            <button class="btn btn-info" [routerLink]="['/meal']" (click)="mealData">Click for more info</button>
         </div>
     </div>
-</div>
 
-<div class="meals" [ngStyle]="{'display': displayMeal}">
-    <h1>Food: {{food}}</h1>
-    <h3>Meal Name: {{mealName}}</h3>
-    <section>
-        <article>
-            Ingredients: {{ingredients}}
-        </article>
-        <article>
-            Method: {{method}}
-        </article>
-    </section>
 </div>
 
 <router-outlet></router-outlet>
