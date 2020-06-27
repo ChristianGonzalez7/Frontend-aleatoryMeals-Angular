@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { Meal } from '../models/meal.model';
 
 @Component({
   selector: 'app-home',
@@ -8,52 +9,46 @@ import { ServiceService } from '../service.service';
 })
 export class HomeComponent implements OnInit {
 
-  randomMeal: any;
+  displayMeal: string;
+  actualMeal: Meal;
   food: string;
-  mealName: string;
+
   ingredients: any[];
   method: any[];
-  nmbr: number;
-  displayMeal: string;
-  exportArray: any[];
+
 
   constructor(private serviceService: ServiceService) {
-    this.nmbr = 999;
     this.displayMeal = 'none';
+    this.food = '';
+    this.ingredients = new Array;
+    this.method = new Array;
+
+    this.actualMeal = new Meal(0, '', '', '', '', '', '', '', '', '', 0);
   }
 
   ngOnInit(): void {
   }
 
   async bringMealData($event){
-    const foodObject:any = await this.serviceService.bringMealbyFood($event.target.id);
+    const importInfo: any = await this.serviceService.bringMealbyFoodId($event.target.id);
 
-    // First time random number
-    if (this.nmbr === 999) {
-      this.nmbr = Math.floor(Math.random() * ((foodObject.meals.length-1) - 0 + 1) + 0);
+    this.actualMeal = new Meal(importInfo.MEAL_ID, importInfo.MEAL_NAME, importInfo.MEAL_INGREDIENTS, importInfo.MEAL.METHOD, importInfo.MEAL.IMAGE, importInfo.MEAL.URL, importInfo.MEAL.PREP, importInfo.MEAL.DIFFICULTY, importInfo.MEAL.SERVING, importInfo.MEAL.DESCRIPTION, importInfo.FOOD_ID);
+
+    if (this.actualMeal.foodId === 1) {
+      this.food = 'banana';
+    } else if (this.actualMeal.foodId === 2) {
+      this.food = 'apple';
+    } else if (this.actualMeal.foodId === 3) {
+      this.food = 'chicken';
     }
 
-    // Change meal so it doesn't repeat
-    if (this.nmbr === (foodObject.meals.length-1)) {
-      this.nmbr--
-    } else if (this.nmbr >= 0) {
-      this.nmbr++
-    }
-    // Add meal data
-    this.randomMeal = foodObject.meals[this.nmbr];
-    this.food = foodObject.food;
-    this.mealName = this.randomMeal.name;
-    this.ingredients = this.randomMeal.ingredients;
-    this.method = this.randomMeal.method;
+    this.ingredients = this.actualMeal.ingredients.split(',');
+    this.method = this.actualMeal.ingredients.split('.');
 
     // Display hidden DIV container with meal
     this.displayMeal = 'inline-block';
   }
-
-  mealData() {
-    this.serviceService.updateActualMeal(this.randomMeal)
-  }
-
-  
+ 
+  mealData() {}
 
 }

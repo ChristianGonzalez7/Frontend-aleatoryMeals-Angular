@@ -18,15 +18,15 @@
 
         <div class="meals col-7 mt-4" [ngStyle]="{'display': displayMeal}">
             <h1>Food: <i>{{food}}</i></h1>
-            <h2 class="mb-3 pb-3">Meal Name: <i>{{mealName}}</i></h2>
+            <h2 class="mb-3 pb-3">Meal Name: <i>{{actualMeal.name}}</i></h2>
             <section>
                 <h2><u>Ingredients:</u></h2>
-                <article class="mb-2 info" *ngFor="let ingredient of randomMeal.ingredients">
-                    <b>- </b>{{ingredient}}
+                <article class="mb-2 info" *ngFor="let ingredient of this.ingredients">
+                    <b>- </b>{{actualMeal.ingredients}}
                 </article>
                 <h2 class="mt-4"><u>Method:</u></h2>
-                <article class="mb-2 info" *ngFor="let method of randomMeal.method; let i=index">
-                    <b>{{i + 1}}.</b> {{method}}
+                <article class="mb-2 info" *ngFor="let method of this.method; let i=index">
+                    <b>{{i}}- </b>{{method}}
                 </article>
             </section>
 
