@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   ingredients: any[];
   method: any[];
 
+  infoImported: any;
+
 
   constructor(private serviceService: ServiceService) {
     this.displayMeal = 'none';
@@ -24,15 +26,19 @@ export class HomeComponent implements OnInit {
     this.method = new Array;
 
     this.actualMeal = new Meal(0, '', '', '', '', '', '', '', '', '', 0);
+
+    this.infoImported = {};
   }
 
   ngOnInit(): void {
   }
 
   async bringMealData($event){
-    const importInfo: any = await this.serviceService.bringMealbyFoodId($event.target.id);
+    this.infoImported = await this.serviceService.bringMealbyFoodId($event.target.id);
 
-    this.actualMeal = new Meal(importInfo.MEAL_ID, importInfo.MEAL_NAME, importInfo.MEAL_INGREDIENTS, importInfo.MEAL.METHOD, importInfo.MEAL.IMAGE, importInfo.MEAL.URL, importInfo.MEAL.PREP, importInfo.MEAL.DIFFICULTY, importInfo.MEAL.SERVING, importInfo.MEAL.DESCRIPTION, importInfo.FOOD_ID);
+    console.log(this.infoImported);
+
+    this.actualMeal = new Meal(this.infoImported.MEAL_ID, this.infoImported.MEAL_NAME, this.infoImported.MEAL_INGREDIENTS, this.infoImported.MEAL.METHOD, this.infoImported.MEAL.IMAGE, this.infoImported.MEAL.URL, this.infoImported.MEAL.PREP, this.infoImported.MEAL.DIFFICULTY, this.infoImported.MEAL.SERVING, this.infoImported.MEAL.DESCRIPTION, this.infoImported.FOOD_ID);
 
     if (this.actualMeal.foodId === 1) {
       this.food = 'banana';
