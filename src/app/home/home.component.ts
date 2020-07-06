@@ -36,11 +36,8 @@ export class HomeComponent implements OnInit {
   async bringMealData($event){
     this.infoImported = await this.serviceService.bringMealbyFoodId($event.target.id);
 
-    console.log(this.infoImported);
-
     this.actualMeal = new Meal(this.infoImported.MEAL_ID, this.infoImported.MEAL_NAME, this.infoImported.MEAL_INGREDIENTS, this.infoImported.MEAL_METHOD, this.infoImported.MEAL_IMAGE, this.infoImported.MEAL_URL, this.infoImported.MEAL_PREP, this.infoImported.MEAL_DIFFICULTY, this.infoImported.MEAL_SERVING, this.infoImported.MEAL_DESCRIPTION, this.infoImported.FOOD_ID);
 
-    console.log(this.actualMeal);
 
     if (this.actualMeal.foodId === 1) {
       this.food = 'banana';
