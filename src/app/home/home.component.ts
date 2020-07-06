@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
       this.food = 'chicken';
     }
 
-    this.ingredients = this.actualMeal.ingredients.split(',');
+    this.ingredients = this.actualMeal.ingredients.split(', ');
     this.method = this.actualMeal.method.split('.');
 
     // Display hidden DIV container with meal
