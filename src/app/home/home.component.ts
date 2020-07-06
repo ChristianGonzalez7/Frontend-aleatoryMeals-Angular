@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     console.log(this.infoImported);
 
     this.actualMeal = new Meal(this.infoImported.MEAL_ID, this.infoImported.MEAL_NAME, this.infoImported.MEAL_INGREDIENTS, this.infoImported.MEAL.METHOD, this.infoImported.MEAL.IMAGE, this.infoImported.MEAL.URL, this.infoImported.MEAL.PREP, this.infoImported.MEAL.DIFFICULTY, this.infoImported.MEAL.SERVING, this.infoImported.MEAL.DESCRIPTION, this.infoImported.FOOD_ID);
-
+    console.log(this.actualMeal);
     if (this.actualMeal.foodId === 1) {
       this.food = 'banana';
     } else if (this.actualMeal.foodId === 2) {
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.ingredients = this.actualMeal.ingredients.split(',');
-    this.method = this.actualMeal.ingredients.split('.');
+    this.method = this.actualMeal.method.split('.');
 
     // Display hidden DIV container with meal
     this.displayMeal = 'inline-block';
