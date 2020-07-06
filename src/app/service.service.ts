@@ -11,8 +11,8 @@ export class ServiceService {
   meal: any;
 
   constructor(private http: HttpClient) {
-    this.urlHome = 'http://localhost:9001/home/';
-    this.urlMealDetail = 'http://localhost:9001/meal/';
+    this.urlHome = 'https://aleatory-meals-node-mysql.herokuapp.com/home/';
+    this.urlMealDetail = 'https://aleatory-meals-node-mysql.herokuapp.com/meal/';
     this.meal = new Array;
   }
 
